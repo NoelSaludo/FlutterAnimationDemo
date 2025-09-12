@@ -3,14 +3,14 @@ import 'package:flutteranimationdemo/Widget/Home.dart';
 import 'package:flutteranimationdemo/shared/PageNavigator.dart';
 
 class ButtonBuilder {
-  Widget BuildLottieButton(BuildContext context) {
+  Widget BuildButtonToLottie(BuildContext context) {
     return TextButton(
       child: Text("Lottie Page"),
       onPressed: () => PageNavigator().goTo(context, LottiePage()),
     );
   }
 
-  Widget BuildBackElivated(BuildContext context) {
+  Widget BuildBackElivatedButton(BuildContext context) {
     return ElevatedButton(
       onPressed: () => PageNavigator().goBack(context),
       child: Text("Back"),
