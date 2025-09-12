@@ -11,8 +11,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
   ButtonBuilder buttonBuilder = ButtonBuilder();
 
   @override
@@ -26,11 +24,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          // This will be our navigation center
           children: <Widget>[
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
             buttonBuilder.BuildButtonToLottie(context),
           ],
         ),
@@ -39,11 +34,3 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class LottiePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(child: ButtonBuilder().BuildBackElivatedButton(context)),
-    );
-  }
-}
