@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutteranimationdemo/Widget/Home.dart';
+import 'package:flutteranimationdemo/Widget/LottiePage.dart';
 import 'package:flutteranimationdemo/shared/PageNavigator.dart';
 
 class ButtonBuilder {
