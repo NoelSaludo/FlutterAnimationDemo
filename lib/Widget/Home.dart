@@ -27,6 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // This will be our navigation center
           children: <Widget>[
             buttonBuilder.BuildButtonToLottie(context),
+            buttonBuilder.BuildButtonToRadialAnimation(context),
           ],
         ),
       ),
