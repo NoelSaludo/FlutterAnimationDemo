@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutteranimationdemo/Widget/LottiePage.dart';
+import 'package:flutteranimationdemo/Widget/RadialAnimationPage.dart';
 import 'package:flutteranimationdemo/shared/PageNavigator.dart';
 
 class ButtonBuilder {
@@ -16,4 +17,13 @@ class ButtonBuilder {
       child: Text("Back"),
     );
   }
+
+  Widget BuildButtonToRadialAnimation(BuildContext context) {
+    return TextButton(
+      child: Text("Radial Animation"),
+      onPressed: () => PageNavigator().goTo(context, RadialAnimationPage()),
+    );
+  }
+
+
 }
