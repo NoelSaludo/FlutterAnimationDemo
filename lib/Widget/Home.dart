@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutteranimationdemo/Widget/LottiePage.dart';
+import 'package:flutteranimationdemo/Widget/RadialAnimationPage.dart';
 import 'package:flutteranimationdemo/shared/ButtonBuilder.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -26,8 +28,8 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           // This will be our navigation center
           children: <Widget>[
-            buttonBuilder.BuildButtonToLottie(context),
-            buttonBuilder.BuildButtonToRadialAnimation(context),
+            buttonBuilder.BuildRouteButtonToPage(context, RadialAnimationPage(), Text("Radial Animation")),
+            buttonBuilder.BuildRouteButtonToPage(context, LottiePage(), Text("Lottie Animation")),
           ],
         ),
       ),
