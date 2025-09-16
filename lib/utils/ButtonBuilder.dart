@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutteranimationdemo/shared/PageNavigator.dart';
+import 'package:flutteranimationdemo/utils/PageNavigator.dart';
 
 class ButtonBuilder {
-  Widget BuildRouteButtonToPage(BuildContext context, Widget page, Text child) {
+  Widget BuildTextButtonToPage(BuildContext context, Widget page, Text child) {
     return TextButton(
       child: child,
       onPressed: () => PageNavigator().goTo(context, page),
@@ -13,6 +13,13 @@ class ButtonBuilder {
     return ElevatedButton(
       onPressed: () => PageNavigator().goBack(context),
       child: Text("Back"),
+    );
+  }
+
+  BuildElivatedButtonToPage(BuildContext context, Widget page, String title) {
+    return ElevatedButton(
+      onPressed: () => PageNavigator().goTo(context, page),
+      child: Text("Login"),
     );
   }
 
