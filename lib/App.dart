@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Pages/Home.dart';
+import 'package:flutteranimationdemo/Pages/LoginPage.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -11,7 +11,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const LoginPage(),
     );
   }
 }

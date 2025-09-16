@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutteranimationdemo/Pages/Home.dart';
 
 class PageNavigator {
   void goTo(BuildContext context, Widget page) {
@@ -10,5 +11,13 @@ class PageNavigator {
 
   void goBack(BuildContext context) {
     Navigator.pop(context);
+  }
+
+  void goToHome(BuildContext context) {
+    Navigator.pop(context);
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MyHomePage(title: "MyLibrary")),
+    );
   }
 }

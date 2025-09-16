@@ -1,0 +1,6 @@
+enum APPSTATE {
+  LOGING,
+  LOADING,
+  ATHOME,
+  VIEWING,
+}
