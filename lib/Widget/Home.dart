@@ -26,10 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          // This will be our navigation center
           children: <Widget>[
-            buttonBuilder.BuildRouteButtonToPage(context, RadialAnimationPage(), Text("Radial Animation")),
-            buttonBuilder.BuildRouteButtonToPage(context, LottiePage(), Text("Lottie Animation")),
           ],
         ),
       ),
