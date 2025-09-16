@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutteranimationdemo/Pages/Home.dart';
+import 'package:lottie/lottie.dart';
 
 class LoadingPage extends StatelessWidget {
   const LoadingPage({super.key, required this.PageToLoad});
 
   final Widget PageToLoad;
   Future<String> loadData() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 5));
     return "Data Loaded";
   }
 
@@ -16,7 +17,7 @@ class LoadingPage extends StatelessWidget {
       future: loadData(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Scaffold(body: Center(child: CircularProgressIndicator()));
+          return Scaffold(body: Center(child: Lottie.asset('assets/loading.json')));
         } else if (snapshot.hasError) {
           return Scaffold(
             body: Center(child: Text("Error: ${snapshot.error}")),
