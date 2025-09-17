@@ -22,6 +22,7 @@ class PageNavigator {
 
   Route _createRoute(Widget page) {
     return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 700),
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(0.0, -1.0);

@@ -17,16 +17,17 @@ class _MyHomePageState extends State<MyHomePage> {
   ButtonBuilder buttonBuilder = ButtonBuilder();
   List<Book> books = Book.getSampleBooks();
 
+  bool isShowingProfile = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
-      body: GridView.count(crossAxisCount: 2, children: _fillView(context)),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
-        child: const Icon(Icons.person),
+      body: GridView.count(
+        crossAxisCount: 2,
+        physics: const BouncingScrollPhysics(),
+        children: _fillView(context),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
     );
   }
 
@@ -34,7 +35,10 @@ class _MyHomePageState extends State<MyHomePage> {
     List<Widget> items = [];
     for (int i = 0; i < books.length; i++) {
       var book = books[i];
-      var item = Text(book.title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
+      var item = Text(
+        book.title,
+        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      );
       items.add(
         Hero(
           tag: 'item_image_$i',
@@ -53,13 +57,10 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.push(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => ItemDetailPage(
-          book: book,
-          itemIndex: itemIndex,
-        ),
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            ItemDetailPage(book: book, itemIndex: itemIndex),
         transitionDuration: const Duration(milliseconds: 600),
       ),
     );
   }
-
 }
