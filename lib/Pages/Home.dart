@@ -14,13 +14,18 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   ButtonBuilder buttonBuilder = ButtonBuilder();
 
+  bool isShowingProfile = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
       body: GridView.count(crossAxisCount: 2, children: _fillView(context)),
+      drawer: _buildDrawer(context),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
+        onPressed: () {
+          Scaffold.of(context).openDrawer();
+        },
         child: const Icon(Icons.person),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
@@ -31,9 +36,21 @@ class _MyHomePageState extends State<MyHomePage> {
     List<Widget> items = [];
     for (int i = 0; i < 20; i++) {
       var item = Text("Item $i", style: TextStyle(fontSize: 24));
-      items.add(ItemCard(item: item, imageUrl: "https://picsum.photos/200/300?random=$i"));
+      items.add(
+        ItemCard(
+          item: item,
+          imageUrl: "https://picsum.photos/200/300?random=$i",
+        ),
+      );
     }
     return items;
   }
 
+  Widget _buildDrawer(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        children: [],
+      )
+    );
+  }
 }
