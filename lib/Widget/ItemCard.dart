@@ -3,28 +3,33 @@ import 'package:flutter/material.dart';
 class ItemCard extends StatelessWidget {
   final Text item;
   final String imageUrl;
+  final VoidCallback? onTap;
 
-  const ItemCard({Key? key, required this.item, required this.imageUrl}) : super(key: key);
+  const ItemCard({Key? key, required this.item, required this.imageUrl, this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
-      child: Container(
-        alignment: Alignment.center,
-        height: 200,
-        width: 50,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          image: DecorationImage(
-            image: NetworkImage(imageUrl),
-            fit: BoxFit.cover,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(10),
+        child: Container(
+          alignment: Alignment.center,
+          height: 200,
+          width: 50,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+              image: NetworkImage(imageUrl),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-        child: Stack(
-          children: [
-            _buildBottomTextContainer(item),
-          ],
+          child: Stack(
+            children: [
+              _buildBottomTextContainer(item),
+            ],
+          ),
         ),
       ),
     );
