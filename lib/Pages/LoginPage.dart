@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutteranimationdemo/utils/PageNavigator.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -11,6 +12,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  final double size = 200.0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +36,9 @@ class _LoginPageState extends State<LoginPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        Container(
+          child: Lottie.asset("assets/login.json", width: size, height: size),
+        ),
         TextField(
           decoration: InputDecoration(labelText: 'Username'),
           controller: usernameController,
