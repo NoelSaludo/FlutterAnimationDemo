@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutteranimationdemo/Pages/Home.dart';
 import 'package:lottie/lottie.dart';
+import 'package:flutteranimationdemo/utils/PageNavigator.dart';
 
 class LoadingPage extends StatelessWidget {
   const LoadingPage({super.key, required this.PageToLoad});
@@ -23,7 +23,10 @@ class LoadingPage extends StatelessWidget {
             body: Center(child: Text("Error: ${snapshot.error}")),
           );
         } else {
-          return MyHomePage(title: "Home Page"); 
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            PageNavigator().goTo(context, PageToLoad);
+          });
+          return Container();
         }
       },
     );
