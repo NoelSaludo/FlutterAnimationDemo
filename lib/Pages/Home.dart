@@ -21,14 +21,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
       body: GridView.count(crossAxisCount: 2, children: _fillView(context)),
-      drawer: _buildDrawer(context),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Scaffold.of(context).openDrawer();
-        },
-        child: const Icon(Icons.person),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
     );
   }
 
@@ -44,13 +36,5 @@ class _MyHomePageState extends State<MyHomePage> {
       );
     }
     return items;
-  }
-
-  Widget _buildDrawer(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        children: [],
-      )
-    );
   }
 }
