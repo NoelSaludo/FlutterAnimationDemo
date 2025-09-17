@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutteranimationdemo/Widget/ItemCard.dart';
 import 'package:flutteranimationdemo/utils/ButtonBuilder.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -30,20 +31,9 @@ class _MyHomePageState extends State<MyHomePage> {
     List<Widget> items = [];
     for (int i = 0; i < 20; i++) {
       var item = Text("Item $i", style: TextStyle(fontSize: 24));
-      items.add(_createItemCard(item));
+      items.add(ItemCard(item: item, imageUrl: "https://picsum.photos/200/300?random=$i"));
     }
     return items;
   }
 
-  Widget _createItemCard(Text item) {
-    return Card(
-      margin: EdgeInsets.fromLTRB(10, 8, 10, 8),
-      child: Container(
-        alignment: Alignment.center,
-        height: 500,
-        width: 200,
-        child: item,
-      ),
-    );
-  }
 }
