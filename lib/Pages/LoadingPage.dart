@@ -6,6 +6,7 @@ class LoadingPage extends StatelessWidget {
   const LoadingPage({super.key, required this.PageToLoad});
 
   final Widget PageToLoad;
+
   Future<String> loadData() async {
     await Future.delayed(Duration(seconds: 5));
     return "Data Loaded";
