@@ -68,7 +68,7 @@ class Book {
         title: 'The Catcher in the Rye',
         author: 'J.D. Salinger',
         description: 'A coming-of-age story following Holden Caulfield as he navigates adolescence, alienation, and the transition to adulthood in 1950s New York.',
-        coverImageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=400&fit=crop',
+        coverImageUrl: 'https://images.unsplash.com/photo-1463320898484-cdee8141c787?w=300&h=400&fit=crop',
         publishedDate: DateTime(1951),
       ),
       Book(
@@ -120,11 +120,11 @@ class Book {
         publishedDate: DateTime(1866),
       ),
       Book(
-        id: '12',
+        id: '12', 
         title: 'The Alchemist',
         author: 'Paulo Coelho',
         description: 'A philosophical novel about a young shepherd named Santiago who dreams of finding a worldly treasure and discovers the importance of following one\'s dreams.',
-        coverImageUrl: 'https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?w=300&h=400&fit=crop',
+        coverImageUrl: 'https://images.unsplash.com/photo-1463320898484-cdee8141c787?w=300&h=400&fit=crop',
         publishedDate: DateTime(1988),
       ),
     ];

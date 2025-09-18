@@ -36,22 +36,69 @@ class _LoginPageState extends State<LoginPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        Text(
+          'BookShelf',
+          style: TextStyle(
+            fontSize: 32.0,
+            fontWeight: FontWeight.bold,
+            color: Color.fromRGBO(97, 93, 237, 1.0),
+          ),
+        ),
+        SizedBox(height: 10.0),
+        Text(
+          'Welcome Back',
+          style: TextStyle(
+            fontSize: 16.0,
+          )
+        ),
         Container(
+          padding: const EdgeInsets.only(right: 25.0), // Adds 20 logical pixels of padding to the left
           child: Lottie.asset("assets/login.json", width: size, height: size),
         ),
         TextField(
-          decoration: InputDecoration(labelText: 'Username'),
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.grey[50],//textfield background color
+            labelText: 'Username',
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0), // Customize border radius
+              borderSide: BorderSide(
+                color: Colors.blue, // Customize border color
+                width: 2.0, // Customize border width
+              ),
+            ),
+          ),
           controller: usernameController,
         ),
         SizedBox(height: 16.0),
         TextField(
-          decoration: InputDecoration(labelText: 'Password'),
+          decoration: InputDecoration(
+            labelText: 'Password',
+            filled: true,
+            fillColor: Colors.grey[50], //textfield background color
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0), // Customize border radius
+              borderSide: BorderSide(
+                color: Colors.blue, // Customize border color
+                width: 2.0, // Customize border width
+              ),
+            ),
+),
           obscureText: true,
           controller: passwordController,
         ),
         SizedBox(height: 32.0),
         ElevatedButton(
           onPressed: () => {handleLogin(context)},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color.fromRGBO(97, 93, 237, 1.0),
+            foregroundColor: Colors.white,
+            minimumSize: const Size(200, 50),
+            // Additional styling like shape, elevation, etc. can also be added here
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+    ),
+  ),
           child: const Text("Login"),
         ),
       ],
