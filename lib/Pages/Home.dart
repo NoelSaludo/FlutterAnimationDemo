@@ -3,6 +3,7 @@ import 'package:flutteranimationdemo/Widget/ItemCard.dart';
 import 'package:flutteranimationdemo/utils/ButtonBuilder.dart';
 import 'package:flutteranimationdemo/Pages/ItemDetailPage.dart';
 import 'package:flutteranimationdemo/models/Book.dart';
+import 'package:flutteranimationdemo/utils/string_extensions.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -23,11 +24,19 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
-      body: GridView.count(
+      
+      body: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 15.0), // 👈 screen-side padding
+      child: GridView.count(
         crossAxisCount: 2,
+        crossAxisSpacing: 8.0,
+        mainAxisSpacing: 8.0,
+        childAspectRatio: 0.55,
         physics: const BouncingScrollPhysics(),
         children: _fillView(context),
       ),
+),
+
     );
   }
 
@@ -37,13 +46,27 @@ class _MyHomePageState extends State<MyHomePage> {
       var book = books[i];
       var item = Text(
         book.title,
-        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        style: TextStyle(fontSize: 19),
+      );
+      var author = Text(
+        book.author,
+        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w100),
+      );
+      var description = Text(
+        book.description.length > 80
+        ? '${book.description.substring(0, 80)}...'
+        : book.description,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(fontSize: 12, fontWeight: FontWeight.w100),
       );
       items.add(
         Hero(
           tag: 'item_image_$i',
           child: ItemCard(
             item: item,
+            author: author,
+            description: description,
             imageUrl: book.coverImageUrl,
             onTap: () => _navigateToItemDetail(context, i, book),
           ),

@@ -2,21 +2,23 @@ import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
   final Text item;
+  final Text author;
+  final Text description;
   final String imageUrl;
   final VoidCallback? onTap;
 
-  const ItemCard({Key? key, required this.item, required this.imageUrl, this.onTap}) : super(key: key);
+  const ItemCard({Key? key, required this.item, required this.author,required this.description, required this.imageUrl, this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.fromLTRB(30, 10, 30, 10),
+      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(10),
         child: Container(
           alignment: Alignment.center,
-          height: 200,
+          height: 400,
           width: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -27,7 +29,7 @@ class ItemCard extends StatelessWidget {
           ),
           child: Stack(
             children: [
-              _buildBottomTextContainer(item),
+              _buildBottomTextContainer(),
             ],
           ),
         ),
@@ -35,19 +37,31 @@ class ItemCard extends StatelessWidget {
     );
   }
 
-  Widget _buildBottomTextContainer(Text item) {
+  Widget _buildBottomTextContainer() {
     return Positioned(
       left: 0,
       right: 0,
       bottom: 0,
       child: Container(
-        alignment: Alignment.center,
-        height: 50,
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
+        decoration: const BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.zero),
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(10.0),
+            bottomRight: Radius.circular(10.0),
+          ),
         ),
-        child: item,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min, // Let the height adjust based on content
+          children: [
+            item,
+            const SizedBox(height: 4),
+            author,
+            const SizedBox(height: 4),
+            description,
+          ],
+        ),
       ),
     );
   }
