@@ -12,7 +12,7 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+      margin: EdgeInsets.fromLTRB(2, 2, 2, 2),
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(10),
@@ -43,6 +43,7 @@ class ItemCard extends StatelessWidget {
       right: 0,
       bottom: 0,
       child: Container(
+        height: 140,
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
         decoration: const BoxDecoration(
           color: Colors.white,
