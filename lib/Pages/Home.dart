@@ -46,6 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
       var book = books[i];
       var item = Text(
         book.title,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
         style: TextStyle(fontSize: 19),
       );
       var author = Text(
