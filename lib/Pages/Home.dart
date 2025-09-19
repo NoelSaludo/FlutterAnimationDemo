@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutteranimationdemo/Widget/ItemCard.dart';
 import 'package:flutteranimationdemo/utils/ButtonBuilder.dart';
-import 'package:flutteranimationdemo/Pages/ItemDetailPage.dart';
 import 'package:flutteranimationdemo/models/Book.dart';
-import 'package:flutteranimationdemo/utils/string_extensions.dart';
+import 'package:flutteranimationdemo/utils/PageNavigator.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -40,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  _fillView(BuildContext context) {
+  List<Widget> _fillView(BuildContext context) {
     List<Widget> items = [];
     for (int i = 0; i < books.length; i++) {
       var book = books[i];
@@ -70,22 +69,11 @@ class _MyHomePageState extends State<MyHomePage> {
             author: author,
             description: description,
             imageUrl: book.coverImageUrl,
-            onTap: () => _navigateToItemDetail(context, i, book),
+            onTap: () => PageNavigator().goToItemDetail(context, i, book),
           ),
         ),
       );
     }
     return items;
-  }
-
-  void _navigateToItemDetail(BuildContext context, int itemIndex, Book book) {
-    Navigator.push(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            ItemDetailPage(book: book, itemIndex: itemIndex),
-        transitionDuration: const Duration(milliseconds: 600),
-      ),
-    );
   }
 }
