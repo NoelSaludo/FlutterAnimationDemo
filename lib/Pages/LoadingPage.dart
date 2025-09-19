@@ -20,35 +20,51 @@ class _LoadingPageState extends State<LoadingPage> {
 
   @override
   Widget build(BuildContext context) {
+    return _buildFutureBuilder(context);
+  }
+
+  Widget _buildFutureBuilder(BuildContext context) {
     return FutureBuilder(
       future: loadData(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Scaffold(
-            body: Center(
-              child: LottieAnimator(
-                assetPath: 'assets/loading.json',
-                width: 200,
-                height: 200,
-                duration: Duration(milliseconds: 5000),
-              ),
-            ),
-          );
+          return _buildWaitingPage();
         } else if (snapshot.hasError) {
-          return Scaffold(
-            body: Center(child: Text("Error: {snapshot.error}")),
-          );
+          return _buildErrorPage(snapshot.error);
         } else {
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            PageNavigator().goTo(context, _home);
-          });
-          return Scaffold(
-            body: Center(
-              child: LottieAnimator(assetPath: 'assets/loading.json'),
-            ),
-          );
+          return _buildRoutingPage(context);
         }
       },
+    );
+  }
+
+  Widget _buildWaitingPage() {
+    return Scaffold(
+      body: Center(
+        child: LottieAnimator(
+          assetPath: 'assets/loading.json',
+          width: 200,
+          height: 200,
+          duration: Duration(milliseconds: 5000),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildErrorPage(Object? error) {
+    return Scaffold(
+      body: Center(child: Text("Error: $error")),
+    );
+  }
+
+  Widget _buildRoutingPage(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      PageNavigator().goTo(context, _home);
+    });
+    return Scaffold(
+      body: Center(
+        child: LottieAnimator(assetPath: 'assets/loading.json'),
+      ),
     );
   }
 }
