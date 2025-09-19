@@ -29,8 +29,7 @@ class Book {
   String get coverImageUrl => _coverImageUrl;
   DateTime get publishedDate => _publishedDate;
 
-  // Returns a styled Text widget for the book title
-  Text item() {
+  Text getItemText() {
     return Text(
       title,
       maxLines: 1,
@@ -39,16 +38,14 @@ class Book {
     );
   }
 
-  // Returns a styled Text widget for the book author
-  Text authorWidget() {
+  Text getAuthorText() {
     return Text(
       author,
       style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w100),
     );
   }
 
-  // Returns a styled Text widget for the book description
-  Text descriptionWidget() {
+  Text getDescriptionText() {
     return Text(
       description.length > 80 ? '${description.substring(0, 80)}...' : description,
       maxLines: 2,
@@ -57,6 +54,7 @@ class Book {
     );
   }
 
+  // TODO: Clean this up
   // sample book data for demo
   static List<Book> getSampleBooks() {
     return [

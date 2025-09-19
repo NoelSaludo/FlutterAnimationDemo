@@ -45,9 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return Hero(
       tag: 'item_image_$i',
       child: ItemCard(
-        item: book.item(),
-        author: book.authorWidget(),
-        description: book.descriptionWidget(),
+        item: book.getItemText(),
+        author: book.getAuthorText(),
+        description: book.getDescriptionText(),
         imageUrl: book.coverImageUrl,
         onTap: () => PageNavigator().goToItemDetail(context, i, book),
       ),
