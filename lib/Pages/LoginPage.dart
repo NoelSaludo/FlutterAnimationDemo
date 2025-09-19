@@ -6,6 +6,7 @@ import 'package:flutteranimationdemo/Widget/LoginUsernameField.dart';
 import 'package:flutteranimationdemo/Widget/LoginPasswordField.dart';
 import 'package:flutteranimationdemo/Widget/LoginButton.dart';
 import 'package:flutteranimationdemo/utils/PageNavigator.dart';
+import 'package:flutteranimationdemo/Pages/LoadingPage.dart';
 
 class LoginPage extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
@@ -15,7 +16,7 @@ class LoginPage extends StatelessWidget {
     _checkIfCredentialsareEmtpy(context);
 
     if (_validateCredentials(context)) {
-      PageNavigator().goToHome(context);
+      PageNavigator().goTo(context, LoadingPage());
     }
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Login Successful")));
   }
