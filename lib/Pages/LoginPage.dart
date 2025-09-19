@@ -5,15 +5,18 @@ import 'package:flutteranimationdemo/Widget/LoginLottieAnimation.dart';
 import 'package:flutteranimationdemo/Widget/LoginUsernameField.dart';
 import 'package:flutteranimationdemo/Widget/LoginPasswordField.dart';
 import 'package:flutteranimationdemo/Widget/LoginButton.dart';
+import 'package:flutteranimationdemo/utils/PageNavigator.dart';
 
 class LoginPage extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   void handleLogin(BuildContext context) {
-    // Handle your login logic here
-    // For example, you might want to call an authentication service
-    // and then navigate to another page on success
+    _checkIfCredentialsareEmtpy(context);
+
+    if (_validateCredentials(context)) {
+      PageNavigator().goToHome(context);
+    }
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Login Successful")));
   }
 
@@ -45,5 +48,24 @@ class LoginPage extends StatelessWidget {
         LoginButton(onPressed: () => handleLogin(context)),
       ],
     );
+  }
+
+  void _checkIfCredentialsareEmtpy(BuildContext context) {
+    String username = usernameController.text;
+    String password = passwordController.text;
+    if (username.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Please enter both username and password")));
+      return;
+    }
+  }
+
+  bool _validateCredentials(BuildContext context) {
+    String username = usernameController.text;
+    String password = passwordController.text;
+    if (username != "admin" || password != "password123") {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Invalid username or password")));
+      return false;
+    }
+    return true;
   }
 }
