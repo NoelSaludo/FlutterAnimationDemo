@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 
 class Book {
   final String _id;
@@ -27,6 +28,34 @@ class Book {
   String get description => _description;
   String get coverImageUrl => _coverImageUrl;
   DateTime get publishedDate => _publishedDate;
+
+  // Returns a styled Text widget for the book title
+  Text item() {
+    return Text(
+      title,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
+      style: const TextStyle(fontSize: 19),
+    );
+  }
+
+  // Returns a styled Text widget for the book author
+  Text authorWidget() {
+    return Text(
+      author,
+      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w100),
+    );
+  }
+
+  // Returns a styled Text widget for the book description
+  Text descriptionWidget() {
+    return Text(
+      description.length > 80 ? '${description.substring(0, 80)}...' : description,
+      maxLines: 2,
+      overflow: TextOverflow.ellipsis,
+      style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w100),
+    );
+  }
 
   // sample book data for demo
   static List<Book> getSampleBooks() {

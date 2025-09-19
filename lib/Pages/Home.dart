@@ -23,57 +23,34 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
-      
       body: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 15.0), // 👈 screen-side padding
-      child: GridView.count(
-        crossAxisCount: 2,
-        crossAxisSpacing: 8.0,
-        mainAxisSpacing: 8.0,
-        childAspectRatio: 0.55,
-        physics: const BouncingScrollPhysics(),
-        children: _fillView(context),
+        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+        child: GridView.count(
+          crossAxisCount: 2,
+          crossAxisSpacing: 8.0,
+          mainAxisSpacing: 8.0,
+          childAspectRatio: 0.55,
+          physics: const BouncingScrollPhysics(),
+          children: _buildBookCards(context),
+        ),
       ),
-),
-
     );
   }
 
-  List<Widget> _fillView(BuildContext context) {
-    List<Widget> items = [];
-    for (int i = 0; i < books.length; i++) {
-      var book = books[i];
-      var item = Text(
-        book.title,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(fontSize: 19),
-      );
-      var author = Text(
-        book.author,
-        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w100),
-      );
-      var description = Text(
-        book.description.length > 80
-        ? '${book.description.substring(0, 80)}...'
-        : book.description,
-        maxLines: 2,
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(fontSize: 12, fontWeight: FontWeight.w100),
-      );
-      items.add(
-        Hero(
-          tag: 'item_image_$i',
-          child: ItemCard(
-            item: item,
-            author: author,
-            description: description,
-            imageUrl: book.coverImageUrl,
-            onTap: () => PageNavigator().goToItemDetail(context, i, book),
-          ),
-        ),
-      );
-    }
-    return items;
+  List<Widget> _buildBookCards(BuildContext context) {
+    return List.generate(books.length, (i) => _buildBookCard(context, i, books[i]));
+  }
+
+  Widget _buildBookCard(BuildContext context, int i, Book book) {
+    return Hero(
+      tag: 'item_image_$i',
+      child: ItemCard(
+        item: book.item(),
+        author: book.authorWidget(),
+        description: book.descriptionWidget(),
+        imageUrl: book.coverImageUrl,
+        onTap: () => PageNavigator().goToItemDetail(context, i, book),
+      ),
+    );
   }
 }
