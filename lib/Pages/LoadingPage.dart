@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutteranimationdemo/Pages/Home.dart';
 import 'package:flutteranimationdemo/utils/LottieAnimator.dart';
+import 'package:flutteranimationdemo/utils/PageNavigator.dart';
 
 class LoadingPage extends StatefulWidget {
-  const LoadingPage({super.key, required this.PageToLoad});
-
-  final Widget PageToLoad;
+  const LoadingPage({super.key});
 
   @override
   State<LoadingPage> createState() => _LoadingPageState();
 }
 
 class _LoadingPageState extends State<LoadingPage> {
+  MyHomePage _home = MyHomePage(title: "Home");
+
   Future<String> loadData() async {
     await Future.delayed(Duration(seconds: 5));
     return "Data Loaded";
@@ -38,7 +39,14 @@ class _LoadingPageState extends State<LoadingPage> {
             body: Center(child: Text("Error: {snapshot.error}")),
           );
         } else {
-          return MyHomePage(title: "Home Page");
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            PageNavigator().goTo(context, _home);
+          });
+          return Scaffold(
+            body: Center(
+              child: LottieAnimator(assetPath: 'assets/loading.json'),
+            ),
+          );
         }
       },
     );
