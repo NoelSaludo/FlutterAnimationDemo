@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutteranimationdemo/Pages/Home.dart';
 import 'package:flutteranimationdemo/Pages/LoadingPage.dart';
+import 'package:flutteranimationdemo/models/Book.dart';
+import 'package:flutteranimationdemo/Pages/ItemDetailPage.dart';
 
 class PageNavigator {
   void goTo(BuildContext context, Widget page) {
@@ -18,6 +20,17 @@ class PageNavigator {
 
     // Loading page will navigate to Home page after loading
     Navigator.push(context, _createRoute(lp));
+  }
+
+  void goToItemDetail(BuildContext context, int itemIndex, Book book) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            ItemDetailPage(book: book, itemIndex: itemIndex),
+        transitionDuration: const Duration(milliseconds: 600),
+      ),
+    );
   }
 
   Route _createRoute(Widget page) {
@@ -43,3 +56,4 @@ class PageNavigator {
     );
   }
 }
+
