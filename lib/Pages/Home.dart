@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutteranimationdemo/Widget/ItemCard.dart';
+import 'package:flutteranimationdemo/Widget/BookTabViewWidget.dart';
 import 'package:flutteranimationdemo/utils/ButtonBuilder.dart';
 import 'package:flutteranimationdemo/models/Book.dart';
-import 'package:flutteranimationdemo/utils/PageNavigator.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -29,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
             title: Text(widget.title),
             bottom: _buildTabBar(),
           ),
-          body:_buildTabViews(),
+          body: _buildTabViews(),
         ),
       ),
     );
@@ -48,49 +47,10 @@ class _MyHomePageState extends State<MyHomePage> {
   _buildTabViews() {
     return TabBarView(
       children: [
-        _buildHomeTab(context),
+        BookTabViewWidget(books: books),
         Center(child: Text("Favorites Tab")),
         Center(child: Text("Profile Tab")),
       ],
-    );
-  }
-
-  List<Widget> _buildBookCards(BuildContext context) {
-    return List.generate(
-      books.length,
-      (i) => _buildBookCard(context, i, books[i]),
-    );
-  }
-
-  // TODO: Turn this into class that takes a list of items and builds a grid view
-  // Also add support for filters and sorting
-  Widget _buildHomeTab(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 15.0,
-          vertical: 15.0,
-        ),
-        child: GridView.count(
-          crossAxisCount: 2,
-          crossAxisSpacing: 8.0,
-          mainAxisSpacing: 8.0,
-          childAspectRatio: 0.55,
-          physics: const BouncingScrollPhysics(),
-          children: _buildBookCards(context),
-        ),
-      );
-  }
-
-  Widget _buildBookCard(BuildContext context, int i, Book book) {
-    return Hero(
-      tag: 'item_image_$i',
-      child: ItemCard(
-        item: book.getItemText(),
-        author: book.getAuthorText(),
-        description: book.getDescriptionText(),
-        imageUrl: book.coverImageUrl,
-        onTap: () => PageNavigator().goToItemDetail(context, i, book),
-      ),
     );
   }
 }
