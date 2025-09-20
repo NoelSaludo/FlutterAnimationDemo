@@ -21,10 +21,55 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(widget.title)),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(widget.title),
+            bottom: _buildTabBar(),
+          ),
+          body:_buildTabViews(),
+        ),
+      ),
+    );
+  }
+
+  TabBar _buildTabBar() {
+    return const TabBar(
+      tabs: [
+        Tab(icon: Icon(Icons.home), child: const Text("Home")),
+        Tab(icon: Icon(Icons.star), child: const Text("Favorites")),
+        Tab(icon: Icon(Icons.person), child: const Text("Profile")),
+      ],
+    );
+  }
+
+  _buildTabViews() {
+    return TabBarView(
+      children: [
+        _buildHomeTab(context),
+        Center(child: Text("Favorites Tab")),
+        Center(child: Text("Profile Tab")),
+      ],
+    );
+  }
+
+  List<Widget> _buildBookCards(BuildContext context) {
+    return List.generate(
+      books.length,
+      (i) => _buildBookCard(context, i, books[i]),
+    );
+  }
+
+  // TODO: Turn this into class that takes a list of items and builds a grid view
+  // Also add support for filters and sorting
+  Widget _buildHomeTab(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 15.0,
+          vertical: 15.0,
+        ),
         child: GridView.count(
           crossAxisCount: 2,
           crossAxisSpacing: 8.0,
@@ -33,12 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
           physics: const BouncingScrollPhysics(),
           children: _buildBookCards(context),
         ),
-      ),
-    );
-  }
-
-  List<Widget> _buildBookCards(BuildContext context) {
-    return List.generate(books.length, (i) => _buildBookCard(context, i, books[i]));
+      );
   }
 
   Widget _buildBookCard(BuildContext context, int i, Book book) {
