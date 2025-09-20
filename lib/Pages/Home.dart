@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutteranimationdemo/Widget/BookTabViewWidget.dart';
+import 'package:flutteranimationdemo/Widget/DiscountedBookTabView.dart';
+import 'package:flutteranimationdemo/Widget/FavoriteBookTabView.dart';
 import 'package:flutteranimationdemo/utils/ButtonBuilder.dart';
 import 'package:flutteranimationdemo/models/Book.dart';
 
@@ -48,8 +50,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return TabBarView(
       children: [
         BookTabViewWidget(books: books),
-        Center(child: Text("Favorites Tab")),
-        Center(child: Text("Profile Tab")),
+        BestSellingBookTabView(books: books),
+        DiscountedBookTabView(books: books),
       ],
     );
   }

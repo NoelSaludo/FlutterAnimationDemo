@@ -31,12 +31,12 @@ class BookTabViewWidget extends StatelessWidget {
         mainAxisSpacing: mainAxisSpacing,
         childAspectRatio: childAspectRatio,
         physics: const BouncingScrollPhysics(),
-        children: _buildBookCards(context),
+        children: buildBookCards(context),
       ),
     );
   }
 
-  List<Widget> _buildBookCards(BuildContext context) {
+  List<Widget> buildBookCards(BuildContext context) {
     return List.generate(
       books.length,
       (i) => _buildBookCard(context, i, books[i]),
