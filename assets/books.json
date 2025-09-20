@@ -1,0 +1,184 @@
+{
+  "books": [
+    {
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "publication_date": "1813",
+      "cover_image_url": "https://images.penguinrandomhouse.com/cover/9780593622452",
+      "description": "A classic novel of manners and romance, exploring issues of class, marriage, morality, and first impressions through Elizabeth Bennet and Mr. Darcy.",
+      "bestselling": true,
+      "rating": 4.27
+    },
+    {
+      "title": "The Adventures of Huckleberry Finn",
+      "author": "Mark Twain",
+      "publication_date": "1884",
+      "cover_image_url": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1661027231i/19370.jpg",
+      "description": "A young boy, Huck Finn, runs away from his abusive father and travels down the Mississippi River; explores race, freedom, moral growth, and society’s injustices.",
+      "bestselling": true,
+      "rating": 3.80
+    },
+    {
+      "title": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "publication_date": "1847",
+      "cover_image_url": "https://cdn.penguin.co.uk/dam-assets/books/9780241570029/9780241570029-jacket-large.jpg",
+      "description": "The life story of Jane Eyre, an orphaned girl who becomes governess at Thornfield Hall, falls in love with Mr Rochester, and endures moral and emotional trials.",
+      "bestselling": true,
+      "rating": 4.15
+    },
+    {
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+      "publication_date": "1869",
+      "cover_image_url": "https://malwarwickonbooks.com/wp-content/uploads/War-and-Peace-book-cover.jpeg",
+      "description": "A sweeping epic chronicling Russian society during the Napoleonic era; combines historical events with personal stories; deep philosophical, moral, and existential themes.",
+      "bestselling": true,
+      "rating": 4.11
+    },
+    {
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "publication_date": "1866",
+      "cover_image_url": "https://eastindiapublishing.com/cdn/shop/files/CrimeandPunishment-01.png?v=1706581156",
+      "description": "A psychological novel about a poor ex‑student in Saint Petersburg who plans and carries out a murder, then experiences guilt, paranoia, moral agony, and spiritual awakening.",
+      "bestselling": true,
+      "rating": 4.25
+    },
+    {
+      "title": "Wuthering Heights",
+      "author": "Emily Brontë",
+      "publication_date": "1847",
+      "cover_image_url": "https://cdn.penguin.co.uk/dam-assets/books/9780241736388/9780241736388-jacket-large.jpg",
+      "description": "Dark, passionate novel of love and revenge, set on the Yorkshire moors; explores destructive relationships, obsession, and social mores.",
+      "bestselling": false,
+      "rating": 3.90
+    },
+    {
+      "title": "Moby‑Dick; or, The Whale",
+      "author": "Herman Melville",
+      "publication_date": "1851",
+      "cover_image_url": "https://substackcdn.com/image/fetch/$s_!BXQg!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F949c4925-ee27-4d98-98b9-506836bc9801_600x841.jpeg",
+      "description": "A grand, symbolic novel about obsession: Captain Ahab’s quest to capture the white whale Moby Dick. Interwoven with meditations on nature, humanity, fate, and revenge.",
+      "bestselling": false,
+      "rating": 3.51
+    },
+    {
+      "title": "The Lord of the Rings",
+      "author": "J. R. R. Tolkien",
+      "publication_date": "1954",
+      "cover_image_url": "https://i.harperapps.com/hcanz/covers/9780008537760/y648.jpg",
+      "description": "Epic high fantasy about the quest to destroy the One Ring forged by the Dark Lord; traverses Middle‑earth with hobbits, elves, dwarves, men and wizards. Themes of courage, sacrifice, corruption, friendship.",
+      "bestselling": true,
+      "rating": 4.54
+    },
+    {
+      "title": "Great Expectations",
+      "author": "Charles Dickens",
+      "publication_date": "1860",
+      "cover_image_url": "https://cdn.kobo.com/book-images/d1d264bb-edf9-4405-ab53-eb13f82342ab/1200/1200/False/great-expectations-398.jpg",
+      "description": "Follows the orphan Pip, his growth and moral development, his encounters with wealth, crime, love, and guilt; a study of character, social class and personal redemption.",
+      "bestselling": true,
+      "rating": 3.79
+    },
+    {
+      "title": "On the Origin of Species",
+      "author": "Charles Darwin",
+      "publication_date": "1859",
+      "cover_image_url": "https://cdn.kobo.com/book-images/7f7cb400-e00d-4608-9fd8-e8c672820781/1200/1200/False/the-origin-of-species-44.jpg",
+      "description": "Groundbreaking scientific work introducing the theory of natural selection; radically shifted understanding of biology, evolution, and life itself.",
+      "bestselling": true,
+      "rating": 3.98
+    },
+    {
+      "title": "The Prince",
+      "author": "Niccolò Machiavelli",
+      "publication_date": "1532",
+      "cover_image_url": "https://cdn.achology.com/wp-content/uploads/20240610150932/The-Prince_-by-Niccolo-Machiavelli.jpg",
+      "description": "A political treatise about power: how rulers gain, maintain, and lose power; realpolitik; often controversial and widely studied.",
+      "bestselling": true,
+      "rating": 3.84
+    },
+    {
+      "title": "A Vindication of the Rights of Woman",
+      "author": "Mary Wollstonecraft",
+      "publication_date": "1792",
+      "cover_image_url": "https://cdn.kobo.com/book-images/0c665826-228e-411f-8dfd-823bcd53dce1/1200/1200/False/a-vindication-of-the-rights-of-woman-38.jpg",
+      "description": "Lays out arguments for women’s education and political rights; early feminist philosophy; very influential in social thought.",
+      "bestselling": false,
+      "rating": 3.70
+    },
+    {
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "publication_date": "1960",
+      "cover_image_url": "https://images.penguinrandomhouse.com/cover/9780061120084",
+      "description": "Set in the racially charged American South, it follows young Scout Finch and her father Atticus, a principled lawyer defending a Black man wrongly accused of rape. Themes of justice, empathy, moral growth, and social inequality.",
+      "bestselling": true,
+      "rating": 4.26
+    },
+    {
+      "title": "1984",
+      "author": "George Orwell",
+      "publication_date": "1949",
+      "cover_image_url": "https://images.penguinrandomhouse.com/cover/9780451524935",
+      "description": "A dystopian novel exploring life under totalitarian rule, surveillance, censorship, and the manipulation of truth through the eyes of Winston Smith. Chillingly prescient and politically critical.",
+      "bestselling": true,
+      "rating": 4.20
+    },
+    {
+      "title": "The Catcher in the Rye",
+      "author": "J. D. Salinger",
+      "publication_date": "1951",
+      "cover_image_url": "https://images.penguinrandomhouse.com/cover/9780316769488",
+      "description": "Follows disenchanted teenager Holden Caulfield as he wanders New York City, rebelling against 'phoniness' and confronting grief and growing up. A key work in American coming-of-age literature.",
+      "bestselling": true,
+      "rating": 3.80
+    },
+    {
+      "title": "Beloved",
+      "author": "Toni Morrison",
+      "publication_date": "1987",
+      "cover_image_url": "https://images.penguinrandomhouse.com/cover/9781400033416",
+      "description": "Inspired by true events, it tells the story of a formerly enslaved woman haunted by the ghost of her baby daughter. Explores trauma, memory, motherhood, and the legacy of slavery in America.",
+      "bestselling": true,
+      "rating": 3.87
+    },
+    {
+      "title": "One Hundred Years of Solitude",
+      "author": "Gabriel García Márquez",
+      "publication_date": "1967",
+      "cover_image_url": "https://images.penguinrandomhouse.com/cover/9780060883287",
+      "description": "A magical realist epic tracing the rise and fall of the Buendía family in the fictional town of Macondo. Explores time, memory, solitude, and the cycles of history in Latin America.",
+      "bestselling": true,
+      "rating": 4.12
+    },
+    {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "publication_date": "1925",
+      "cover_image_url": "https://images.penguinrandomhouse.com/cover/9780743273565",
+      "description": "A tragic tale of love, ambition, illusion, and disillusionment in 1920s America, seen through the eyes of Nick Carraway as he observes the mysterious millionaire Jay Gatsby.",
+      "bestselling": true,
+      "rating": 3.93
+    },
+    {
+      "title": "Frankenstein; or, The Modern Prometheus",
+      "author": "Mary Shelley",
+      "publication_date": "1818",
+      "cover_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Frankenstein_1818_edition_title_page.jpg/800px-Frankenstein_1818_edition_title_page.jpg",
+      "description": "A Gothic novel about Victor Frankenstein, who creates a sentient creature, then recoils from it. Explores themes of creation, responsibility, isolation, and what it means to be human.",
+      "bestselling": false,
+      "rating": 3.78
+    },
+    {
+      "title": "The Road",
+      "author": "Cormac McCarthy",
+      "publication_date": "2006",
+      "cover_image_url": "https://images.penguinrandomhouse.com/cover/9780307387899",
+      "description": "A post-apocalyptic novel about a father and son's harrowing journey through a burned America, exploring themes of survival, love, hope, and the bond between parent and child.",
+      "bestselling": true,
+      "rating": 4.07
+    }
+  ]
+}

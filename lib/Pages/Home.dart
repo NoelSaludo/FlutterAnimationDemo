@@ -16,9 +16,19 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   ButtonBuilder buttonBuilder = ButtonBuilder();
-  List<Book> books = Book.getSampleBooks();
+  List<Book>? books;
 
   bool isShowingProfile = false;
+
+  @override
+  void initState() {
+    super.initState();
+    Book.getSampleBooks().then((loadedBooks) {
+      setState(() {
+        books = loadedBooks;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +40,9 @@ class _MyHomePageState extends State<MyHomePage> {
             title: Text(widget.title),
             bottom: _buildTabBar(),
           ),
-          body: _buildTabViews(),
+          body: books == null
+              ? const Center(child: CircularProgressIndicator())
+              : _buildTabViews(),
         ),
       ),
     );
@@ -49,9 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
   _buildTabViews() {
     return TabBarView(
       children: [
-        BookTabViewWidget(books: books),
-        BestSellingBookTabView(books: books),
-        TopPickedBookTabView(books: books),
+        BookTabViewWidget(books: books!),
+        BestSellingBookTabView(books: books!),
+        TopPickedBookTabView(books: books!),
       ],
     );
   }

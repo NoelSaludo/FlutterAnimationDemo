@@ -58,7 +58,7 @@ class ItemDetailSliverDetails extends StatelessWidget {
         Expanded(
           child: _buildInfoCard(
             'Published',
-            book.publishedDate.year.toString(),
+            book.publishedDate,
             Icons.calendar_today,
             Colors.blue,
           ),

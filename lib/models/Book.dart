@@ -1,45 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:flutteranimationdemo/utils/FileReader.dart';
 
 class Book {
-  final String _id;
   final String _title;
   final String _author;
   final String _description;
   final String _coverImageUrl;
-  final DateTime _publishedDate;
-  final int _rating;
+  final String _publishedDate;
+  final double _rating;
   final bool _bestSelling;
 
   Book({
-    required String id,
     required String title,
     required String author,
     required String description,
     required String coverImageUrl,
-    required DateTime publishedDate,
-    required int rating,
+    required String publishedDate,
+    required double rating,
     required bool bestSelling,
-  })  : _id = id,
-        _title = title,
-        _author = author,
-        _description = description,
-        _coverImageUrl = coverImageUrl,
-        _publishedDate = publishedDate,
-        _rating = rating,
-        _bestSelling = bestSelling;
+  }) : _title = title,
+       _author = author,
+       _description = description,
+       _coverImageUrl = coverImageUrl,
+       _publishedDate = publishedDate,
+       _rating = rating,
+       _bestSelling = bestSelling;
 
-  String get id => _id;
   String get title => _title;
+
   String get author => _author;
+
   String get description => _description;
+
   String get coverImageUrl => _coverImageUrl;
-  DateTime get publishedDate => _publishedDate;
-  int get rating => _rating;
+
+  String get publishedDate => _publishedDate;
+
+  double get rating => _rating;
+
   bool get bestSelling => _bestSelling;
 
   Text getItemText() {
     return Text(
-      title,
+      _title,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style: const TextStyle(fontSize: 19),
@@ -48,14 +51,16 @@ class Book {
 
   Text getAuthorText() {
     return Text(
-      author,
+      _author,
       style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w100),
     );
   }
 
   Text getDescriptionText() {
     return Text(
-      description.length > 80 ? '${description.substring(0, 80)}...' : description,
+      _description.length > 80
+          ? '${_description.substring(0, 80)}...'
+          : _description,
       maxLines: 2,
       overflow: TextOverflow.ellipsis,
       style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w100),
@@ -64,129 +69,29 @@ class Book {
 
   // TODO: Clean this up
   // sample book data for demo
-  static List<Book> getSampleBooks() {
-    return [
-      Book(
-        id: '1',
-        title: 'The Great Gatsby',
-        author: 'F. Scott Fitzgerald',
-        description: 'A classic American novel set in the Jazz Age, following the mysterious Jay Gatsby and his obsession with the beautiful Daisy Buchanan. This masterpiece explores themes of wealth, love, and the American Dream.',
-        coverImageUrl: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop',
-        publishedDate: DateTime(1925),
-        rating: 10,
-        bestSelling: true,
-      ),
-      Book(
-        id: '2',
-        title: 'To Kill a Mockingbird',
-        author: 'Harper Lee',
-        description: 'A gripping tale of racial injustice and childhood innocence in the American South. Through the eyes of Scout Finch, we witness her father\'s courageous defense of a black man falsely accused of rape.',
-        coverImageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop',
-        publishedDate: DateTime(1960),
-        rating: 10,
-        bestSelling: true,
-      ),
-      Book(
-        id: '3',
-        title: '1984',
-        author: 'George Orwell',
-        description: 'A dystopian masterpiece that explores totalitarianism, surveillance, and the manipulation of truth. Winston Smith\'s struggle against the oppressive Party in a world where Big Brother is always watching.',
-        coverImageUrl: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=400&fit=crop',
-        publishedDate: DateTime(1949),
-        rating: 10,
-        bestSelling: true,
-      ),
-      Book(
-        id: '4',
-        title: 'Pride and Prejudice',
-        author: 'Jane Austen',
-        description: 'A timeless romance novel that follows Elizabeth Bennet and Mr. Darcy through their journey of love, misunderstanding, and personal growth in Regency England.',
-        coverImageUrl: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&h=400&fit=crop',
-        publishedDate: DateTime(1813),
-        rating: 9,
-        bestSelling: true,
-      ),
-      Book(
-        id: '5',
-        title: 'The Catcher in the Rye',
-        author: 'J.D. Salinger',
-        description: 'A coming-of-age story following Holden Caulfield as he navigates adolescence, alienation, and the transition to adulthood in 1950s New York.',
-        coverImageUrl: 'https://images.unsplash.com/photo-1463320898484-cdee8141c787?w=300&h=400&fit=crop',
-        publishedDate: DateTime(1951),
-        rating: 8,
-        bestSelling: false,
-      ),
-      Book(
-        id: '6',
-        title: 'Lord of the Flies',
-        author: 'William Golding',
-        description: 'A powerful allegory about civilization and savagery, following a group of British boys stranded on an uninhabited island and their disastrous attempt to govern themselves.',
-        coverImageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop',
-        publishedDate: DateTime(1954),
-        rating: 8,
-        bestSelling: false,
-      ),
-      Book(
-        id: '7',
-        title: 'Moby-Dick',
-        author: 'Herman Melville',
-        description: 'The epic tale of Captain Ahab\'s obsessive quest to hunt the white whale, Moby-Dick, exploring themes of fate, revenge, and the human condition.',
-        coverImageUrl: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?w=300&h=400&fit=crop',
-        publishedDate: DateTime(1851),
-        rating: 8,
-        bestSelling: false,
-      ),
-      Book(
-        id: '8',
-        title: 'Brave New World',
-        author: 'Aldous Huxley',
-        description: 'A visionary dystopian novel that imagines a future society driven by technological advancements, conformity, and the loss of individuality.',
-        coverImageUrl: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=300&h=400&fit=crop',
-        publishedDate: DateTime(1932),
-        rating: 8,
-        bestSelling: false,
-      ),
-      Book(
-        id: '9',
-        title: 'The Hobbit',
-        author: 'J.R.R. Tolkien',
-        description: 'Bilbo Baggins embarks on a grand adventure with a group of dwarves to reclaim their homeland from the dragon Smaug in this beloved fantasy classic.',
-        coverImageUrl: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=300&h=400&fit=crop',
-        publishedDate: DateTime(1937),
-        rating: 10,
-        bestSelling: true,
-      ),
-      Book(
-        id: '10',
-        title: 'Jane Eyre',
-        author: 'Charlotte Brontë',
-        description: 'A groundbreaking novel following the emotional and moral growth of the orphaned Jane Eyre as she navigates love, independence, and social criticism.',
-        coverImageUrl: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=300&h=400&fit=crop',
-        publishedDate: DateTime(1847),
-        rating: 8,
-        bestSelling: false,
-      ),
-      Book(
-        id: '11',
-        title: 'Crime and Punishment',
-        author: 'Fyodor Dostoevsky',
-        description: 'A psychological drama about guilt, redemption, and morality, centered on the troubled student Raskolnikov after he commits a murder.',
-        coverImageUrl: 'https://images.unsplash.com/photo-1463320898484-cdee8141c787?w=300&h=400&fit=crop',
-        publishedDate: DateTime(1866),
-        rating: 10,
-        bestSelling: false,
-      ),
-      Book(
-        id: '12', 
-        title: 'The Alchemist',
-        author: 'Paulo Coelho',
-        description: 'A philosophical novel about a young shepherd named Santiago who dreams of finding a worldly treasure and discovers the importance of following one\'s dreams.',
-        coverImageUrl: 'https://images.unsplash.com/photo-1463320898484-cdee8141c787?w=300&h=400&fit=crop',
-        publishedDate: DateTime(1988),
-        rating: 7,
-        bestSelling: true,
-      ),
-    ];
+  static Future<List<Book>> getSampleBooks() async {
+    FileReader fileReader = FileReader('assets/books.json');
+    return await fileReader.getBooks();
   }
 
+  Book.fromJson(Map<String, dynamic> json)
+    : _title = json['title'] as String,
+      _author = json['author'] as String,
+      _description = json['description'] as String,
+      _coverImageUrl = json['cover_image_url'] as String,
+      _publishedDate = json['publication_date'] as String,
+      _rating = (json['rating'] as num).toDouble(),
+      _bestSelling = json['bestselling'] as bool;
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': _title,
+      'author': _author,
+      'description': _description,
+      'cover_image_url': _coverImageUrl,
+      'publication_date': _publishedDate,
+      'rating': _rating,
+      'bestselling': _bestSelling,
+    };
+  }
 }
