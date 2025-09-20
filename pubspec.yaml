@@ -64,6 +64,7 @@ flutter:
     - assets/books.json
     - assets/loading.json
     - assets/login.json
+    - assets/user.json
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
