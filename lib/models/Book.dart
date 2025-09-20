@@ -80,7 +80,7 @@ class Book {
       _description = json['description'] as String,
       _coverImageUrl = json['cover_image_url'] as String,
       _publishedDate = json['publication_date'] as String,
-      _rating = (json['rating'] as num).toDouble(),
+      _rating = json['rating'] as double,
       _bestSelling = json['bestselling'] as bool;
 
   Map<String, dynamic> toJson() {

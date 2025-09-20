@@ -25,7 +25,7 @@ class TopPickedBookTabView extends BookTabViewWidget {
 
   @override
   List<Widget> buildBookCards(BuildContext context) {
-    return books.where((book) => book.rating >= 8).map((book) {
+    return books.where((book) => book.rating >= 4).map((book) {
       int itemIndex = books.indexOf(book);
       return buildBookCard(context, itemIndex, book);
     }).toList();
