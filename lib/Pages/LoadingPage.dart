@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutteranimationdemo/Pages/Home.dart';
 import 'package:flutteranimationdemo/utils/LottieAnimator.dart';
 import 'package:flutteranimationdemo/utils/PageNavigator.dart';
+import 'package:lottie/lottie.dart';
 
 class LoadingPage extends StatefulWidget {
   const LoadingPage({super.key});
@@ -10,12 +11,23 @@ class LoadingPage extends StatefulWidget {
   State<LoadingPage> createState() => _LoadingPageState();
 }
 
-class _LoadingPageState extends State<LoadingPage> {
+class _LoadingPageState extends State<LoadingPage> with SingleTickerProviderStateMixin {
   MyHomePage _home = MyHomePage(title: "Home");
 
-  Future<String> loadData() async {
-    await Future.delayed(Duration(seconds: 5));
-    return "Data Loaded";
+  late LottieAnimator lottieAnimator;
+  late Widget loadingLottie;
+
+  void initState() {
+    super.initState();
+    lottieAnimator = LottieAnimator(vsync: this);
+    lottieAnimator.hingeController.forward();
+
+    loadingLottie = Lottie.asset(
+      'assets/loading.json',
+      width: 200,
+      height: 200,
+      fit: BoxFit.fill,
+    );
   }
 
   @override
@@ -40,21 +52,12 @@ class _LoadingPageState extends State<LoadingPage> {
 
   Widget _buildWaitingPage() {
     return Scaffold(
-      body: Center(
-        child: LottieAnimator(
-          assetPath: 'assets/loading.json',
-          width: 200,
-          height: 200,
-          duration: Duration(milliseconds: 5000),
-        ),
-      ),
+      body: Center(child: lottieAnimator.applyHingeAnimation(loadingLottie)),
     );
   }
 
   Widget _buildErrorPage(Object? error) {
-    return Scaffold(
-      body: Center(child: Text("Error: $error")),
-    );
+    return Scaffold(body: Center(child: Text("Error: $error")));
   }
 
   Widget _buildRoutingPage(BuildContext context) {
@@ -62,9 +65,12 @@ class _LoadingPageState extends State<LoadingPage> {
       PageNavigator().goTo(context, _home);
     });
     return Scaffold(
-      body: Center(
-        child: LottieAnimator(assetPath: 'assets/loading.json'),
-      ),
+      body: Center(child: lottieAnimator.applyHingeAnimation(loadingLottie)),
     );
+  }
+
+  Future<String> loadData() async {
+    await Future.delayed(Duration(seconds: 5));
+    return "Data Loaded";
   }
 }
