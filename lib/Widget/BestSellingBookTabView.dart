@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutteranimationdemo/Widget/BookTabViewWidget.dart';
 import 'package:flutteranimationdemo/models/Book.dart';
 
-class TopPickedBookTabView extends BookTabViewWidget {
-  const TopPickedBookTabView({super.key, required this.books})
-      : super(books: books);
+class BestSellingBookTabView extends BookTabViewWidget {
+  const BestSellingBookTabView({super.key, required this.books})
+    : super(books: books);
 
   final List<Book> books;
 
@@ -23,9 +23,10 @@ class TopPickedBookTabView extends BookTabViewWidget {
     );
   }
 
+
   @override
   List<Widget> buildBookCards(BuildContext context) {
-    return books.where((book) => book.rating >= 8).map((book) {
+    return books.where((book) => book.bestSelling).map((book) {
       int itemIndex = books.indexOf(book);
       return buildBookCard(context, itemIndex, book);
     }).toList();

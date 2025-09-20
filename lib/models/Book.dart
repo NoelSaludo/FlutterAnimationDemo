@@ -7,6 +7,8 @@ class Book {
   final String _description;
   final String _coverImageUrl;
   final DateTime _publishedDate;
+  final int _rating;
+  final bool _bestSelling;
 
   Book({
     required String id,
@@ -15,12 +17,16 @@ class Book {
     required String description,
     required String coverImageUrl,
     required DateTime publishedDate,
+    required int rating,
+    required bool bestSelling,
   })  : _id = id,
         _title = title,
         _author = author,
         _description = description,
         _coverImageUrl = coverImageUrl,
-        _publishedDate = publishedDate;
+        _publishedDate = publishedDate,
+        _rating = rating,
+        _bestSelling = bestSelling;
 
   String get id => _id;
   String get title => _title;
@@ -28,6 +34,8 @@ class Book {
   String get description => _description;
   String get coverImageUrl => _coverImageUrl;
   DateTime get publishedDate => _publishedDate;
+  int get rating => _rating;
+  bool get bestSelling => _bestSelling;
 
   Text getItemText() {
     return Text(
@@ -65,6 +73,8 @@ class Book {
         description: 'A classic American novel set in the Jazz Age, following the mysterious Jay Gatsby and his obsession with the beautiful Daisy Buchanan. This masterpiece explores themes of wealth, love, and the American Dream.',
         coverImageUrl: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop',
         publishedDate: DateTime(1925),
+        rating: 10,
+        bestSelling: true,
       ),
       Book(
         id: '2',
@@ -73,6 +83,8 @@ class Book {
         description: 'A gripping tale of racial injustice and childhood innocence in the American South. Through the eyes of Scout Finch, we witness her father\'s courageous defense of a black man falsely accused of rape.',
         coverImageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop',
         publishedDate: DateTime(1960),
+        rating: 10,
+        bestSelling: true,
       ),
       Book(
         id: '3',
@@ -81,6 +93,8 @@ class Book {
         description: 'A dystopian masterpiece that explores totalitarianism, surveillance, and the manipulation of truth. Winston Smith\'s struggle against the oppressive Party in a world where Big Brother is always watching.',
         coverImageUrl: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=400&fit=crop',
         publishedDate: DateTime(1949),
+        rating: 10,
+        bestSelling: true,
       ),
       Book(
         id: '4',
@@ -89,6 +103,8 @@ class Book {
         description: 'A timeless romance novel that follows Elizabeth Bennet and Mr. Darcy through their journey of love, misunderstanding, and personal growth in Regency England.',
         coverImageUrl: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&h=400&fit=crop',
         publishedDate: DateTime(1813),
+        rating: 9,
+        bestSelling: true,
       ),
       Book(
         id: '5',
@@ -97,6 +113,8 @@ class Book {
         description: 'A coming-of-age story following Holden Caulfield as he navigates adolescence, alienation, and the transition to adulthood in 1950s New York.',
         coverImageUrl: 'https://images.unsplash.com/photo-1463320898484-cdee8141c787?w=300&h=400&fit=crop',
         publishedDate: DateTime(1951),
+        rating: 8,
+        bestSelling: false,
       ),
       Book(
         id: '6',
@@ -105,6 +123,8 @@ class Book {
         description: 'A powerful allegory about civilization and savagery, following a group of British boys stranded on an uninhabited island and their disastrous attempt to govern themselves.',
         coverImageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop',
         publishedDate: DateTime(1954),
+        rating: 8,
+        bestSelling: false,
       ),
       Book(
         id: '7',
@@ -113,6 +133,8 @@ class Book {
         description: 'The epic tale of Captain Ahab\'s obsessive quest to hunt the white whale, Moby-Dick, exploring themes of fate, revenge, and the human condition.',
         coverImageUrl: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?w=300&h=400&fit=crop',
         publishedDate: DateTime(1851),
+        rating: 8,
+        bestSelling: false,
       ),
       Book(
         id: '8',
@@ -121,6 +143,8 @@ class Book {
         description: 'A visionary dystopian novel that imagines a future society driven by technological advancements, conformity, and the loss of individuality.',
         coverImageUrl: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=300&h=400&fit=crop',
         publishedDate: DateTime(1932),
+        rating: 8,
+        bestSelling: false,
       ),
       Book(
         id: '9',
@@ -129,6 +153,8 @@ class Book {
         description: 'Bilbo Baggins embarks on a grand adventure with a group of dwarves to reclaim their homeland from the dragon Smaug in this beloved fantasy classic.',
         coverImageUrl: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=300&h=400&fit=crop',
         publishedDate: DateTime(1937),
+        rating: 10,
+        bestSelling: true,
       ),
       Book(
         id: '10',
@@ -137,6 +163,8 @@ class Book {
         description: 'A groundbreaking novel following the emotional and moral growth of the orphaned Jane Eyre as she navigates love, independence, and social criticism.',
         coverImageUrl: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=300&h=400&fit=crop',
         publishedDate: DateTime(1847),
+        rating: 8,
+        bestSelling: false,
       ),
       Book(
         id: '11',
@@ -145,6 +173,8 @@ class Book {
         description: 'A psychological drama about guilt, redemption, and morality, centered on the troubled student Raskolnikov after he commits a murder.',
         coverImageUrl: 'https://images.unsplash.com/photo-1463320898484-cdee8141c787?w=300&h=400&fit=crop',
         publishedDate: DateTime(1866),
+        rating: 10,
+        bestSelling: false,
       ),
       Book(
         id: '12', 
@@ -153,6 +183,8 @@ class Book {
         description: 'A philosophical novel about a young shepherd named Santiago who dreams of finding a worldly treasure and discovers the importance of following one\'s dreams.',
         coverImageUrl: 'https://images.unsplash.com/photo-1463320898484-cdee8141c787?w=300&h=400&fit=crop',
         publishedDate: DateTime(1988),
+        rating: 7,
+        bestSelling: true,
       ),
     ];
   }

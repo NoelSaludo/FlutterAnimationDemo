@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutteranimationdemo/Widget/BookTabViewWidget.dart';
 import 'package:flutteranimationdemo/Widget/DiscountedBookTabView.dart';
-import 'package:flutteranimationdemo/Widget/FavoriteBookTabView.dart';
+import 'package:flutteranimationdemo/Widget/BestSellingBookTabView.dart';
 import 'package:flutteranimationdemo/utils/ButtonBuilder.dart';
 import 'package:flutteranimationdemo/models/Book.dart';
 
@@ -39,9 +39,9 @@ class _MyHomePageState extends State<MyHomePage> {
   TabBar _buildTabBar() {
     return const TabBar(
       tabs: [
-        Tab(icon: Icon(Icons.home), child: const Text("Home")),
-        Tab(icon: Icon(Icons.star), child: const Text("Favorites")),
-        Tab(icon: Icon(Icons.person), child: const Text("Profile")),
+        Tab(icon: Icon(Icons.grid_3x3), child: const Text("All")),
+        Tab(icon: Icon(Icons.star), child: const Text("Top Rated")),
+        Tab(icon: Icon(Icons.star_border), child: const Text("Best Selling")),
       ],
     );
   }
@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
       children: [
         BookTabViewWidget(books: books),
         BestSellingBookTabView(books: books),
-        DiscountedBookTabView(books: books),
+        TopPickedBookTabView(books: books),
       ],
     );
   }

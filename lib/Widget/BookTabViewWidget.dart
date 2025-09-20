@@ -39,11 +39,11 @@ class BookTabViewWidget extends StatelessWidget {
   List<Widget> buildBookCards(BuildContext context) {
     return List.generate(
       books.length,
-      (i) => _buildBookCard(context, i, books[i]),
+      (i) => buildBookCard(context, i, books[i]),
     );
   }
 
-  Widget _buildBookCard(BuildContext context, int i, Book book) {
+  Widget buildBookCard(BuildContext context, int i, Book book) {
     return Hero(
       tag: 'item_image_$i',
       child: ItemCard(
