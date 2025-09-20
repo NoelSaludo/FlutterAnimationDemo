@@ -41,7 +41,7 @@ class ItemDetailSliverDetails extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          'by {book.author}',
+          'by ${book.author}',
           style: TextStyle(
             fontSize: 18,
             color: Colors.grey[600],
