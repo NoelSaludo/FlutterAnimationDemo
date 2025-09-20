@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutteranimationdemo/models/Book.dart';
+import 'package:flutteranimationdemo/models/User.dart';
 
 class FileReader {
   final String path;
@@ -21,5 +22,10 @@ class FileReader {
     } else {
       return [];
     }
+  }
+
+  Future<User> getUser() async {
+    final data = await loadJsonAsset();
+    return User.fromJson(data);
   }
 }
